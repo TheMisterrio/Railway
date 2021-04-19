@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row align-items-center justify-content-center">
+<div class="card col-6">
+  <h5 class="card-header text-center">Квиток</h5>
+  <div class="card-body">
+    <ul class="list-group list-group-flush">
+    <li class="list-group-item font-weight-bold">{{ticket_info[1]}} {{ticket_info[0]}} {{ticket_info[2]}} {{ticket_info[3]}}</li>
+    <li class="list-group-item font-weight-bold">{{ticket_info[5]}} №{{ticket_info[4]}}</li>
+    <li class="list-group-item font-weight-bold">{{ticket_info[6]}} {{ticket_info[7]}} {{ticket_info[8]}} - {{ticket_info[9]}} {{ticket_info[10]}} {{ticket_info[11]}}</li>
+        <li class="list-group-item"><b>Відправлення:</b> {{(ticket_info[12]|string)[:-3]}}</li>
+        <li class="list-group-item"><b>Прибуття:</b> {{(ticket_info[13]|string)[:-3]}}</li>
+        <li class="list-group-item"><b>Вагон:</b> {{ticket_info[14]}} №{{ticket_info[15]}} Місце: {{ticket_info[16]}}</li>
+        <li class="list-group-item"><b>Ціна:</b> {{ticket_info[17]}}$</li>
+  </ul>
+  </div>
+</div>
+</div>
+<div class="justify-content-center align-items-center text-center mt-3 row">
+    <a href="{{url_for('index')}}" type="submit" class="btn btn-outline-success">Купити інший квиток <img src="{{url_for('static', filename='images/train_ico.png')}}" alt=""></a>
+</div>
+{% endblock %}

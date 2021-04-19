@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="" method="post" class="form-inline justify-content-center align-items-center">
+    <label for="station1">Станція відправлення в місті {{cities[1]}}:</label>
+    <select class="custom-select m-3" name="station1" id="station1">
+        {%for station in departure_stations%}
+        <option value="{{station[0]}}">{{station[1]}}</option>
+        {%endfor%}
+    </select>
+    <label for="station2">Станція призначення в місті {{cities[0]}}:</label>
+    <select class="custom-select m-3" name="station2" id="station2">
+        {%for station in arrival_stations%}
+        <option value="{{station[0]}}">{{station[1]}}</option>
+        {%endfor%}
+    </select>
+    <button type="submit" class="btn btn-outline-success">Знайти квитки <img src="{{url_for('static', filename='images/train_ico.png')}}" alt=""></button>
+        <div class="card mt-2 col-6 justify-content-center align-items-center">
+    <label for="date" class="mt-3">Дата: </label>
+    <input type="date" id="date" class="form-control m-3 w-50" name="date" required>
+    </div>
+</form>
+{% endblock %}

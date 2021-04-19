@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="" method="post" class="form-inline justify-content-center align-items-center row">
+        <table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">№</th>
+      <th scope="col">Потяг</th>
+      <th scope="col">Звідки / Куди</th>
+      <th scope="col">Відправлення / Прибуття</th>
+        <th scope="col">В дорозі</th>
+        <th scope="col">Вільних місць</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in range(0, trains|length) %}
+    <tr>
+      <th scope="row" rowspan="{{trains_carriages[i]|length}}">{{trains[i][0]}}</th>
+      <td rowspan="{{trains_carriages[i]|length}}">{{trains[i][1]}}</td>
+      <td rowspan="{{trains_carriages[i]|length}}">{{trains[i][2]}} {{trains[i][3]}} - {{trains[i][4]}} {{trains[i][5]}}</td>
+        <td rowspan="{{trains_carriages[i]|length}}">{{(times[i][0]|string)[:-3]}} - {{(times[i][1]|string)[:-3]}}</td>
+        <td rowspan="{{trains_carriages[i]|length}}">{{times[i][2]}} годин</td>
+      {% for j in range(0, trains_carriages[i]|length) %}
+        {% if j == 0 %}
+      <td>{{trains_carriages[i][j][0]}} {{trains_carriages[i][j][2]}}<button type="submit" value="{{trains[i][0]}};{{trains_carriages[i][j][4]}}" name="buy" class="btn btn-outline-success float-right">Купити за {{trains_carriages[i][j][3]}}$</button></td>
+    </tr>
+      {% else %}
+      <tr>
+      <td>{{trains_carriages[i][j][0]}} {{trains_carriages[i][j][2]}}<button type="submit" value="{{trains[i][0]}};{{trains_carriages[i][j][4]}}" name="buy" class="btn btn-outline-success float-right">Купити за {{trains_carriages[i][j][3]}}$</button></td>
+    </tr>
+  {% endif %}
+  {% endfor %}
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+</form>
+{% endblock %}

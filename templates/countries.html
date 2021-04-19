@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="" method="post" class="form-inline justify-content-center align-items-center">
+    <label for="country1">Країна відправлення:</label>
+    <select class="custom-select m-3" name="country1" id="country1">
+        {%for country in countries%}
+        <option value="{{country[0]}}">{{country[1]}}</option>
+        {%endfor%}
+    </select>
+    <label for="country2">Країна призначення:</label>
+    <select class="custom-select m-3" name="country2" id="country2">
+        {%for country in countries%}
+        <option value="{{country[0]}}">{{country[1]}}</option>
+        {%endfor%}
+    </select>
+    <button type="submit" class="btn btn-outline-success">Знайти квитки <img src="{{url_for('static', filename='images/train_ico.png')}}" alt=""></button>
+</form>
+{% endblock %}

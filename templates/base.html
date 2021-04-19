@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Railway tickets shop</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+  </head>
+  <body>
+    <div class="container-fluid main_header">
+      <header class="row">
+        <h3 class="text-center col-12 main_header">Продаж квитків на потяги міжнародного сполучення</h3>
+      </header>
+          {% block content %}
+
+          {% endblock %}
+    </div>
+  </body>
+</html>
